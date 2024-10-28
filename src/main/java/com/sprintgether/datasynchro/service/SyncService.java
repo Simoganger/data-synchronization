@@ -2,8 +2,8 @@ package com.sprintgether.datasynchro.service;
 
 import com.sprintgether.datasynchro.model.central.CentralProduct;
 import com.sprintgether.datasynchro.model.local.Product;
-import com.sprintgether.datasynchro.repository.CentralProductRepository;
-import com.sprintgether.datasynchro.repository.LocalProductRepository;
+import com.sprintgether.datasynchro.repository.central.CentralProductRepository;
+import com.sprintgether.datasynchro.repository.local.LocalProductRepository;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -34,6 +34,7 @@ public class SyncService {
         centralProduct.setName(localProduct.getName());
         centralProduct.setDescription(localProduct.getDescription());
         centralProduct.setQuantity(localProduct.getQuantity());
+        centralProductRepository.save(centralProduct);
       } else {
         CentralProduct centralProduct = CentralProduct.builder()
             .id(localProduct.getId())

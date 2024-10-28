@@ -18,6 +18,8 @@ public class SyncScheduler {
       log.info("Synchronizing data with central server ...");
       syncService.syncWithCentralDatabase();
       log.info("Data synchronized successfully!");
+    } else {
+      log.info("No internet connection available, synchronization cannot be completed right now.");
     }
   }
 

@@ -1,5 +1,6 @@
 package com.sprintgether.datasynchro.model;
 
-public record ResponseMessage() {
+import lombok.Builder;
 
-}
+@Builder
+public record ResponseMessage(String message, Integer code, Object data) {}

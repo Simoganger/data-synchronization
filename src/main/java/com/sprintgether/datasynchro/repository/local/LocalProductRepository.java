@@ -1,4 +1,4 @@
-package com.sprintgether.datasynchro.repository;
+package com.sprintgether.datasynchro.repository.local;
 
 import com.sprintgether.datasynchro.model.local.Product;
 import java.time.LocalDateTime;

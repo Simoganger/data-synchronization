@@ -1,4 +1,4 @@
-package com.sprintgether.datasynchro.repository;
+package com.sprintgether.datasynchro.repository.central;
 
 import com.sprintgether.datasynchro.model.central.CentralProduct;
 import org.springframework.data.jpa.repository.JpaRepository;

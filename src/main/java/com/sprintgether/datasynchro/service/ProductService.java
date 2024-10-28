@@ -2,8 +2,9 @@ package com.sprintgether.datasynchro.service;
 
 import com.sprintgether.datasynchro.model.central.CentralProduct;
 import com.sprintgether.datasynchro.model.local.Product;
-import com.sprintgether.datasynchro.repository.CentralProductRepository;
-import com.sprintgether.datasynchro.repository.LocalProductRepository;
+import com.sprintgether.datasynchro.repository.central.CentralProductRepository;
+import com.sprintgether.datasynchro.repository.local.LocalProductRepository;
+import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,20 +17,14 @@ public class ProductService {
   private final LocalProductRepository localProductRepository;
   private final CentralProductRepository centralProductRepository;
 
-  public void saveLocalProduct() {
-    Product product = Product.builder()
-        .name("Sugar")
-        .description("White sugar")
-        .build();
-    localProductRepository.save(product);
+  public Product saveLocalProduct(Product product) {
+    product.setLastModified(LocalDateTime.now());
+    return localProductRepository.save(product);
   }
 
-  public void saveCentralProduct() {
-    CentralProduct centralProduct = CentralProduct.builder()
-        .name("Coffee")
-        .description("Black and bitter coffee")
-        .build();
-    centralProductRepository.save(centralProduct);
+  public CentralProduct saveCentralProduct(CentralProduct centralProduct) {
+    centralProduct.setLastModified(LocalDateTime.now());
+    return centralProductRepository.save(centralProduct);
   }
 
 }
