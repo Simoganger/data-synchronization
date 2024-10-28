@@ -1,16 +1,21 @@
 spring:
   application:
     name: data-synchro
-
   datasource:
     local:
       url: jdbc:postgresql://localhost:5434/local_store_db
       username: user1
       password: password1
-      driver-class-name: org.postgres.Driver
+      driver-class-name: org.postgresql.Driver
     central:
       url: jdbc:postgresql://localhost:5436/central_store_db
       username: user2
       password: password2
-      driver-class-name: org.postgres.Driver
+      driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
